@@ -1,0 +1,33 @@
+{
+  "package": "lucide-static",
+  "version": "1.55.0",
+  "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.55.0.tgz",
+  "license": "ISC",
+  "integrity": "sha512-h18lunTFsIJWnY0FMRPjXeO9KcAtNi7fDqtqgWHOFbssfgUWsctn/pA7bpiyrd4g1DuBOJ24CsRnPfkYblwm/A==",
+  "icons": [
+    "house",
+    "arrow-left-right",
+    "messages-square",
+    "target",
+    "rotate-ccw",
+    "book-open",
+    "chart-no-axes-combined",
+    "shuffle",
+    "zap",
+    "arrow-up-right",
+    "arrow-right",
+    "check",
+    "circle-check",
+    "circle-x",
+    "bookmark",
+    "bookmark-check",
+    "sun",
+    "moon",
+    "globe",
+    "lightbulb",
+    "skip-forward",
+    "download",
+    "upload",
+    "trash-2"
+  ]
+}
