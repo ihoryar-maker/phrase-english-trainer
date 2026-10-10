@@ -32,10 +32,15 @@
     save();
   }
   function weak(q) {const p=state.patterns[q.pattern];return !!p && p.wrong>0 && p.run<3;}
+  // Keep recall exercises and their history intact, but exclude them from every active session.
+  function isChoiceExercise(q) {
+    return ['contrast','multiple-choice','context','mistake'].includes(q.type)
+      && Array.isArray(q.options) && q.options.length >= 2;
+  }
   function pool(mode, category='', pattern='', today=false) {
-    return EXERCISES.filter(q => (!category || q.category===category) && (!pattern || q.pattern===pattern) && (
+    return EXERCISES.filter(q => isChoiceExercise(q) && (!category || q.category===category) && (!pattern || q.pattern===pattern) && (
       mode==='contrast' || mode==='rapid' ? q.type==='contrast' :
-      mode==='real' ? ['context','translation','blocks'].includes(q.type) :
+      mode==='real' ? ['context','contrast'].includes(q.type) :
       mode==='weak' ? weak(q) :
       mode==='review' ? (state.questions[q.id]?.wrong>0 && (!today || state.questions[q.id].wrongDays.includes(day()))) :
       mode==='saved' ? state.saved.includes(q.id) : true));

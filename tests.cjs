@@ -11,4 +11,33 @@ for(let i=0;i<3;i++)E.record(q,true,true);assert(!E.weak(q));assert.equal(E.stat
 vm.runInContext(source,ctx);E=ctx.window.Trainer;assert.equal(E.state.answers,4);assert.equal(E.state.best,3);assert.equal(E.stats().accuracy,75);
 const other=qs.find(x=>x.pattern!==q.pattern);assert.equal(E.pick([q,other],[q.id]).id,other.id);assert.equal(E.pick([]),null);E.reset();assert.equal(E.state.answers,0);assert.equal(E.pool('review').length,0);
 storage['phrase-progress-v1']='broken';vm.runInContext(source,ctx);assert.equal(ctx.window.Trainer.state.answers,0);
+E=ctx.window.Trainer;
+// Old written answers and bookmarks must never bring recall formats back into a session.
+for(const item of qs){E.record(item,false);E.toggleSaved(item.id);}
+const expectedIds=qs.filter(q=>['contrast','multiple-choice','context','mistake'].includes(q.type)).map(q=>q.id);
+assert.equal(expectedIds.length,141);
+for(const mode of ['mixed','daily','weak','review','saved','contrast','rapid','real']){
+  const items=E.pool(mode);
+  assert(items.length>0,mode);
+  assert(items.every(q=>q.options?.length>=2&&!['translation','blocks','fill','chunk'].includes(q.type)),mode);
+  if(['mixed','daily','weak','review','saved'].includes(mode))assert.deepEqual(Array.from(items,q=>q.id),Array.from(expectedIds),mode);
+}
+for(const category of Object.keys(ctx.window.CATEGORIES)){
+  assert(E.pool('mixed',category).length>0,category);
+  assert(E.pool('real',category).length>0,category);
+}
+for(const mode of ['review','saved','weak']){
+  const matching=E.pool(mode,q.category,q.pattern,true);
+  assert(matching.length>0);
+  assert(matching.every(item=>item.category===q.category&&item.pattern===q.pattern&&item.options));
+}
+const written=qs.find(q=>q.type==='translation');
+assert(E.state.questions[written.id].wrong===1);
+assert(E.state.saved.includes(written.id));
+vm.runInContext(source,ctx);E=ctx.window.Trainer;
+assert.equal(E.state.answers,qs.length);
+assert(E.state.saved.includes(written.id));
+assert(!E.pool('saved').some(q=>q.id===written.id));
+E.reset();assert.equal(E.pool('review').length,0);assert.equal(E.pool('saved').length,0);assert(E.pool('real').length>0);
 console.log(`PASS: ${qs.length} exercise contracts, category minimums, answer normalization, persistence, review filters, streaks, mastery, due dates, bookmarks, non-repeating selection, reset and corrupt JSON recovery.`);
+console.log('PASS: all session modes use choices only; all 15 topics remain available; historical written answers and bookmarks survive without entering sessions.');
