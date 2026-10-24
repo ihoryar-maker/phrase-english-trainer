@@ -3841,9 +3841,9 @@ window.EXERCISES = [
       "It's been fun.",
       "It's been a busy week."
     ],
-    "contextUk": "Уже було довго: скоротіть It has been a long day.",
+    "contextUk": "Скоротіть речення: It has been a long day.",
     "type": "contrast",
-    "question": "Уже було довго: скоротіть It has been a long day.",
+    "question": "Скоротіть речення: It has been a long day.",
     "options": [
       "It's been a long day.",
       "Its been a long day.",
@@ -3865,9 +3865,9 @@ window.EXERCISES = [
       "It's been fun.",
       "It's been a busy week."
     ],
-    "contextUk": "Уже було довго: скоротіть It has been a long day.",
+    "contextUk": "Скоротіть речення: It has been a long day.",
     "type": "blocks",
-    "question": "Уже було довго: скоротіть It has been a long day.",
+    "question": "Скоротіть речення: It has been a long day.",
     "correctAnswer": "It's been a long day.",
     "blocks": [
       "It's",

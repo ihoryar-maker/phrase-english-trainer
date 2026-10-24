@@ -12,4 +12,22 @@ nav a{align-items:center}
 .tag .ui-icon{width:14px;height:14px}
 .phrase .ui-icon{width:20px;height:20px}
 .feedback strong>.ui-icon{margin-right:4px}
+#feedback{scroll-margin-top:24px}
+.feedback{overflow-wrap:anywhere}
+.correct-sentence{display:grid;gap:4px;padding:12px 0}
+.correct-sentence b{font-size:19px}
+.learning-section+.learning-section{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.learning-section h3{font-size:14px;margin:0 0 8px}
+.learning-section p{font-size:15px}
+.feedback .option-reasons{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.option-reasons li{padding:12px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.option-reasons li p{margin:5px 0 0;font-size:14px}
+.option-reasons .chosen-reason{border-color:var(--bad)}
+.choice-label{display:inline-block;font-size:11px;color:var(--bad);margin-left:10px}
+.memory-note{border-left:3px solid var(--green);padding-left:14px}
+.learning-fact{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:14px}
+.learning-fact summary{cursor:pointer;font-weight:600;padding:4px 0}
+.learning-fact summary:focus-visible{outline:3px solid #a8b968;outline-offset:4px;border-radius:4px}
+.learning-fact a{color:var(--green);text-decoration:underline;text-underline-offset:3px;font-size:12px}
+.learning-fact p{font-size:14px}
 @media(max-width:720px){.language{display:none}}
