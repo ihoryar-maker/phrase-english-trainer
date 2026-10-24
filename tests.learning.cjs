@@ -7,6 +7,9 @@ const ctx = vm.createContext({window: {}, Date, Math, performance, URLSearchPara
   localStorage: {getItem: key => storage[key] || null, setItem: (key, value) => storage[key] = value}});
 load(ctx, 'exercises.js');
 load(ctx, 'learning.js');
+ctx.window.crypto = require('node:crypto');
+load(ctx, 'history.js');
+const recordedAttempts=[];ctx.PhraseHistory=ctx.window.PhraseHistory;ctx.PhraseHistory.add=attempt=>{recordedAttempts.push(attempt);return Promise.resolve(true);};
 const qs = ctx.window.EXERCISES;
 const learning = ctx.window.PhraseLearning;
 assert.equal(qs.length, 315);
@@ -103,5 +106,18 @@ assert.equal(ctx.Trainer.state.answers, 2, 'hint-assisted answer must not count'
 assert(node('#feedback').innerHTML.includes('не враховано у статистиці'));
 assert.equal(node('#next').hidden, false);
 assert.equal(node('#skip').hidden, true);
+assert.equal(recordedAttempts.length,3);
+assert.equal(recordedAttempts[0].answer,itHas.correctAnswer);
+assert.equal(recordedAttempts[1].correct,false);
+assert.equal(recordedAttempts[2].hinted,true);
+assert(ctx.PhraseHistory.validate(recordedAttempts));
+assert.equal(new Set(recordedAttempts.map(a=>a.id)).size,3);
+vm.runInContext('start("mixed",{question:questionUnderTest.id})',ctx);
+assert.equal(vm.runInContext('session.length',ctx),1);
+assert.equal(vm.runInContext('session.q.id',ctx),itHas.id);
+node('#skip').onclick();
+assert.equal(recordedAttempts.at(-1).kind,'skip');
+assert.equal(recordedAttempts.at(-1).answer,null);
+assert.equal(ctx.Trainer.state.answers,2);
 console.log('PASS: 315 detailed explanations, 108 patterns, 141 choice exercises, 286 alternative explanations, contextual distinctions, hints, facts, completed sentences and HTML escaping.');
 console.log('PASS: real submit/hint handlers render feedback after right and wrong answers, prevent double counting and preserve unscored hint-assisted practice.');

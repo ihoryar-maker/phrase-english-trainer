@@ -30,4 +30,19 @@ nav a{align-items:center}
 .learning-fact summary:focus-visible{outline:3px solid #a8b968;outline-offset:4px;border-radius:4px}
 .learning-fact a{color:var(--green);text-decoration:underline;text-underline-offset:3px;font-size:12px}
 .learning-fact p{font-size:14px}
+.history-list{display:grid;gap:18px}
+.history-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.history-meta time{font-size:12px;color:var(--muted)}
+.history-entry h2{line-height:1.5;overflow-wrap:anywhere}
+.history-entry p{overflow-wrap:anywhere}
+.history-explanation{border-top:1px solid var(--line);padding-top:12px;margin-top:18px}
+.history-explanation summary{cursor:pointer;font-weight:600;padding:4px 0 12px}
+.history-explanation .learning-section:first-of-type{margin-top:10px}
+.history-repeat{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px}
+.recurring-mistake+.recurring-mistake{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}
+.history-analysis .recurring-mistake p{margin-bottom:8px;overflow-wrap:anywhere;color:var(--text)}
+.history-analysis .recurring-mistake .mini{color:var(--muted)}
+.history-analysis .link{color:var(--green);font-size:14px}
+#history-more{margin-top:20px}
+@media(max-width:720px){.history-entry{padding:20px}.session-head{align-items:flex-start;gap:12px}.session-head>span:last-child{text-align:right}}
 @media(max-width:720px){.language{display:none}}
