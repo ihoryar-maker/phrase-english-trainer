@@ -1,6 +1,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const ctx=vm.createContext({window:{crypto:require('node:crypto')},Date,Math,Map,Set});
-for(const file of ['exercises.js','learning.js','history.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),ctx);
+for(const file of ['exercises.js','learning.js','persistence.js','history.js']) vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),ctx);
+ctx.PhraseStore=ctx.window.PhraseStore;
 const H=ctx.window.PhraseHistory,qs=ctx.window.EXERCISES,q=qs.find(q=>q.id==='ex-0176');
 function attempt(answer,correct,extra={}){return H.make(q,{answer,correct,timeMs:1520.5,...extra});}
 const wrong=attempt('Its been a long day.',false),right=attempt(q.correctAnswer,true),hint=attempt(q.correctAnswer,true,{hinted:true});

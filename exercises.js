@@ -5918,7 +5918,6 @@ window.EXERCISES = [
     "correctAnswer": "Let's meet on Saturday.",
     "alternatives": [
       "Let's meet on Saturday.",
-      "Let us meet on Saturday.",
       "Let us meet on Saturday."
     ]
   },
@@ -6216,7 +6215,7 @@ window.EXERCISES = [
       "He goes to work.",
       "We go to work at 8."
     ],
-    "contextUk": "Я їду на роботу, не про конкретну будівлю.",
+    "contextUk": "Я щодня ходжу на роботу, не про конкретну будівлю.",
     "type": "multiple-choice",
     "question": "I go ___ work every day.",
     "correctAnswer": "to",
@@ -6236,7 +6235,7 @@ window.EXERCISES = [
       "He goes to work.",
       "We go to work at 8."
     ],
-    "contextUk": "Я їду на роботу, не про конкретну будівлю.",
+    "contextUk": "Я щодня ходжу на роботу, не про конкретну будівлю.",
     "type": "fill",
     "question": "I go ___ work every day.",
     "correctAnswer": "to",
@@ -6254,7 +6253,7 @@ window.EXERCISES = [
       "an orange",
       "an egg"
     ],
-    "contextUk": "Я з’їв одне яблуко.",
+    "contextUk": "Вона працює в офісі.",
     "type": "multiple-choice",
     "question": "She works in ___ office.",
     "correctAnswer": "an",
@@ -6274,7 +6273,7 @@ window.EXERCISES = [
       "an orange",
       "an egg"
     ],
-    "contextUk": "Я з’їв одне яблуко.",
+    "contextUk": "Вона працює в офісі.",
     "type": "fill",
     "question": "She works in ___ office.",
     "correctAnswer": "an",
@@ -6292,7 +6291,7 @@ window.EXERCISES = [
       "a website",
       "a meeting"
     ],
-    "contextUk": "У мене є одна машина.",
+    "contextUk": "У мене є запитання.",
     "type": "multiple-choice",
     "question": "I have ___ question.",
     "correctAnswer": "a",
@@ -6312,7 +6311,7 @@ window.EXERCISES = [
       "a website",
       "a meeting"
     ],
-    "contextUk": "У мене є одна машина.",
+    "contextUk": "У мене є запитання.",
     "type": "fill",
     "question": "I have ___ question.",
     "correctAnswer": "a",
@@ -6447,7 +6446,7 @@ window.EXERCISES = [
       "afraid of heights",
       "afraid of dogs"
     ],
-    "contextUk": "Вона боїться павуків.",
+    "contextUk": "Я боюся висоти.",
     "type": "multiple-choice",
     "question": "afraid ___ heights",
     "correctAnswer": "of",
@@ -6467,7 +6466,7 @@ window.EXERCISES = [
       "afraid of heights",
       "afraid of dogs"
     ],
-    "contextUk": "Вона боїться павуків.",
+    "contextUk": "Я боюся висоти.",
     "type": "chunk",
     "question": "afraid ___ heights",
     "correctAnswer": "of",
@@ -6485,7 +6484,7 @@ window.EXERCISES = [
       "Work on a project.",
       "Work on your English."
     ],
-    "contextUk": "Я працюю над сайтом.",
+    "contextUk": "Я працюю над проєктом.",
     "type": "multiple-choice",
     "question": "work ___ a project",
     "correctAnswer": "on",
@@ -6505,7 +6504,7 @@ window.EXERCISES = [
       "Work on a project.",
       "Work on your English."
     ],
-    "contextUk": "Я працюю над сайтом.",
+    "contextUk": "Я працюю над проєктом.",
     "type": "chunk",
     "question": "work ___ a project",
     "correctAnswer": "on",
@@ -6523,7 +6522,7 @@ window.EXERCISES = [
       "Does she drive?",
       "Does it work?"
     ],
-    "contextUk": "Він працює?",
+    "contextUk": "Він тут працює?",
     "type": "multiple-choice",
     "question": "___ he work here?",
     "correctAnswer": "Does",
@@ -6543,7 +6542,7 @@ window.EXERCISES = [
       "Does she drive?",
       "Does it work?"
     ],
-    "contextUk": "Він працює?",
+    "contextUk": "Він тут працює?",
     "type": "fill",
     "question": "___ he work here?",
     "correctAnswer": "Does",
@@ -6561,7 +6560,7 @@ window.EXERCISES = [
       "He has a car.",
       "It has a camera."
     ],
-    "contextUk": "У неї є зустріч.",
+    "contextUk": "У неї є автомобіль.",
     "type": "multiple-choice",
     "question": "She ___ a car.",
     "correctAnswer": "has",
@@ -6581,7 +6580,7 @@ window.EXERCISES = [
       "He has a car.",
       "It has a camera."
     ],
-    "contextUk": "У неї є зустріч.",
+    "contextUk": "У неї є автомобіль.",
     "type": "fill",
     "question": "She ___ a car.",
     "correctAnswer": "has",
@@ -6599,7 +6598,7 @@ window.EXERCISES = [
       "We are ready.",
       "You are right."
     ],
-    "contextUk": "Вони щасливі.",
+    "contextUk": "Вони готові.",
     "type": "multiple-choice",
     "question": "They ___ ready.",
     "correctAnswer": "are",
@@ -6619,7 +6618,7 @@ window.EXERCISES = [
       "We are ready.",
       "You are right."
     ],
-    "contextUk": "Вони щасливі.",
+    "contextUk": "Вони готові.",
     "type": "fill",
     "question": "They ___ ready.",
     "correctAnswer": "are",
@@ -6637,7 +6636,7 @@ window.EXERCISES = [
       "He goes to work.",
       "We go to work at 8."
     ],
-    "contextUk": "Я їду на роботу, не про конкретну будівлю.",
+    "contextUk": "Я щодня ходжу на роботу, не про конкретну будівлю.",
     "type": "mistake",
     "question": "I go to the work every day.",
     "correctAnswer": "the",
@@ -6662,7 +6661,7 @@ window.EXERCISES = [
       "Does she drive?",
       "Does it work?"
     ],
-    "contextUk": "Він працює?",
+    "contextUk": "Він тут працює?",
     "type": "mistake",
     "question": "Does he works here?",
     "correctAnswer": "works",
@@ -6706,7 +6705,7 @@ window.EXERCISES = [
       "I am tired.",
       "I am ready."
     ],
-    "contextUk": "Я зайнятий.",
+    "contextUk": "Я втомлений.",
     "type": "mistake",
     "question": "I have tired.",
     "correctAnswer": "have",
@@ -6727,7 +6726,7 @@ window.EXERCISES = [
       "on Monday",
       "on my birthday"
     ],
-    "contextUk": "Зустрінемось у суботу.",
+    "contextUk": "Ми зустрічаємося в суботу.",
     "type": "mistake",
     "question": "We meet in Saturday.",
     "correctAnswer": "in",

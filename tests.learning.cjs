@@ -71,7 +71,7 @@ Object.assign(ctx, {EXERCISES: qs, CATEGORIES: ctx.window.CATEGORIES,
   document: {querySelector: node, querySelectorAll: () => [], addEventListener() {}, body: node('body')},
   location: {hash: '#home'}, setTimeout, clearTimeout});
 Object.assign(ctx.window, {PhraseIcons: {}, addEventListener() {}, scrollTo() {}});
-load(ctx, 'engine.js');
+load(ctx, 'persistence.js');load(ctx, 'grading.js');load(ctx, 'engine.js');ctx.PhraseGrading=ctx.window.PhraseGrading;load(ctx,'sessions.js');vm.runInContext('function renderHome(){legacyHome()} function renderStats(){legacyStats()}',ctx);
 ctx.Trainer = ctx.window.Trainer;
 ctx.PhraseLearning = learning;
 load(ctx, 'app.js');

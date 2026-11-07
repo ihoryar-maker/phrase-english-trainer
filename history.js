@@ -38,7 +38,7 @@
   }
   const text = (value, max = 4000) => typeof value === 'string' && value.length <= max;
   function validate(attempts) {
-    if (!Array.isArray(attempts)) return false;
+    if (!Array.isArray(attempts) || (window.PhraseStore && !window.PhraseStore.safe(attempts))) return false;
     const ids = new Set();
     return attempts.every(a => {
       if (!a || !text(a.id, 200) || !a.id || ids.has(a.id)) return false;
@@ -46,10 +46,10 @@
       return text(a.questionId, 200) && !!a.questionId && text(a.question) && text(a.solution)
         && text(a.category, 100) && text(a.pattern, 300) && text(a.mode, 50)
         && Number.isFinite(a.at) && a.at > 0 && a.at <= 8640000000000000
-        && /^\d{4}-\d{2}-\d{2}$/.test(a.day) && typeof a.hinted === 'boolean'
+        && (window.PhraseStore ? window.PhraseStore.dateKey(a.day) : /^\d{4}-\d{2}-\d{2}$/.test(a.day)) && typeof a.hinted === 'boolean'
         && Number.isFinite(a.timeMs) && a.timeMs >= 0
         && (a.kind === 'skip' ? a.answer === null && a.correct === null
-          : a.kind === 'answer' && text(a.answer) && typeof a.correct === 'boolean');
+          : a.kind === 'uncertain' ? text(a.answer) && a.correct === null : a.kind === 'answer' && text(a.answer) && typeof a.correct === 'boolean');
     });
   }
   function make(q, {answer = null, correct = null, hinted = false, mode = 'mixed', timeMs = 0, kind = 'answer'}) {

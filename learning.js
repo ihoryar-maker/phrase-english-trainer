@@ -300,14 +300,14 @@ function render(q, { answer, hint = false } = {}) {
   wrongs.sort((a, b) => Number(b === answer) - Number(a === answer));
   const fact = content.fact;
   return `<section class="learning-section"><h3>Чому саме так</h3><p>${escape(content.why)}</p></section>
-    ${!hint && wrongs.length ? `<section class="learning-section"><h3>${q.type === 'mistake' ? 'Чому інші слова не є помилкою' : 'Чому інші варіанти не підходять тут'}</h3><ul class="option-reasons">${wrongs.map(option => `<li${option === answer ? ' class="chosen-reason"' : ''}><b lang="en">${escape(option)}</b>${option === answer ? '<span class="choice-label">Ваш вибір</span>' : ''}<p>${escape(q.wrongExplanations[option])}</p></li>`).join('')}</ul></section>` : ''}
+    ${!hint && wrongs.length ? `<section class="learning-section"><h3>${q.type === 'mistake' ? 'Чому інші слова не є помилкою' : 'Чому інші варіанти не підходять тут'}</h3><ul class="option-reasons">${wrongs.map(option => `<li${option === answer ? ' class="chosen-reason"' : ''}><b lang="en">${escape(option)}</b>${option === answer ? '<span class="choice-label">Ваш вибір</span>' : ''}<p>${escape(q.wrongExplanations?.[option]||q.explanationUk)}</p></li>`).join('')}</ul></section>` : ''}
     <section class="learning-section memory-note"><h3>Як запам’ятати</h3><p>${escape(content.remember)}</p></section>
     <section class="learning-section"><h3>Приклади</h3><div class="examples">${q.examples.map(example => `<span lang="en">${escape(example)}</span>`).join('')}</div></section>
     ${fact ? `<details class="learning-fact"><summary>Цікава деталь${q.pattern === 'have breakfast' ? ' · походження слова' : ''}</summary><p>${escape(fact.text)}</p><a href="${escape(fact.source[1])}" target="_blank" rel="noopener noreferrer">${escape(fact.source[0])} ↗</a></details>` : ''}`;
 }
 function solution(q) {
   if (q.correctSentence) return q.correctSentence;
-  if (q.type === 'multiple-choice') return q.question.replace('___', q.correctAnswer === '—' ? '' : q.correctAnswer).replace(/ {2,}/g, ' ');
+  if (['multiple-choice','fill','chunk'].includes(q.type) && q.question.includes('___')) return q.question.replace('___', q.correctAnswer === '—' ? '' : q.correctAnswer).replace(/ {2,}/g, ' ');
   return q.correctAnswer;
 }
 window.PhraseLearning = { render, solution };
